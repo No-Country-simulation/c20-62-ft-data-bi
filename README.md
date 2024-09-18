@@ -50,3 +50,41 @@ This project aims to develop a comprehensive framework addressing key aspects of
 | **Leonardo Cortés**      | Project Manager (PM), Data Engineer, Data Analyst   |[leocortes85](https://github.com/leocortes85/)  |[Leonardo Cortés Zambrano](https://www.linkedin.com/in/leonardo-cort%C3%A9s-zambrano/)
 | **Beverly Gonzalez**      | ML Engineer and Data Scientist           |[licette32](https://github.com/licette32/) |[Beberly Gonzalez](https://www.linkedin.com/in/beverly-j-l-gonzalez-c/)|
 
+## Key Features
+
+1. **Technology Stack:**
+   - Utilized **Microsoft Fabric**, which encompasses the full **Azure Data Stack**, to develop a complete end-to-end data solution.
+
+2. **Data Architecture:**
+   - Implemented a **Medallion Architecture** to optimize data access and maintain a continuous workflow, ensuring the data remains accessible, manageable, and ready for downstream processes.
+
+      <p align="center">
+  <img src="Images/Medallion.png">
+   </p>
+   <p align="center">
+  <img src="Images/Medallion_flow.png">
+   </p>
+
+3. **Data Transformations:**
+   - Performed **Extract, Transform, and Load (ETL)** operations using the **Pandas** library, automating data loading from client-provided folders.
+   - Applied strategies to handle nested data structures and eliminated irrelevant or highly null columns to optimize the data for further use.
+   - Conducted an **incremental load** of information, using external APIs, web scraping, and custom functions to complement the dataset.
+
+4. **Feature Engineering:**
+   - Conducted extensive **feature engineering** to ensure the data was fully consumable, cleaned, and prepped for machine learning processes and data analysis.
+
+5. **Dimensional Structure and Semantic Model:**
+   - Built a **dimensional structure** stored in a **semantic model** to enable insightful analysis.
+   - Developed a **Power BI dashboard** that provides visual analytics and insights into the video game market.
+
+6. **Recommendation Models:**
+   - Developed **recommendation models** using **machine learning** techniques, specifically leveraging **cosine similarity** for user and item recommendations.
+
+7. **Model Testing and Deployment:**
+   - Conducted tests of the machine learning models using **Azure ML** tools.
+   - Created a `functions.py` file that stores all the functions to be executed during the deployment phase.
+
+8. **Streamlit Deployment:**
+   - Deployed the entire project via **Streamlit** through the `app.py` file, allowing users to:
+     - View the interactive **dashboard**.
+     - Interact with the **machine learning models**, including item and user recommendations, showcasing the project's full capabilities.
