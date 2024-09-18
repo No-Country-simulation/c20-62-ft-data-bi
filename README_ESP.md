@@ -30,7 +30,6 @@ Este proyecto tiene como objetivo desarrollar un marco integral que aborde los a
 | **/data**                | Carpeta que almacena los conjuntos de datos y archivos utilizados por el análisis, dashboard y modelos de ML. |
 | **/Notebooks**           | Carpeta que contiene los notebooks de Jupyter utilizados para los procesos de ETL, EDA y creación de características. |
 | **/Images**              | Carpeta con imágenes relevantes e ilustrativas para el proyecto de análisis.             |
-| **/Docs**                | Carpeta que contiene archivos LaTeX y PDF (en inglés y español) con la documentación de cada etapa del proyecto, así como un informe con el análisis final y las conclusiones. |
 | **requirements.txt**     | Archivo que enumera las dependencias y bibliotecas necesarias para ejecutar el proyecto. |
 | **gitignore**            | Archivo que especifica carpetas y archivos que deben ser ignorados por el control de versiones (git). |
 | **LICENSE**              | Archivo de licencia MIT que especifica los términos bajo los cuales se comparte el código fuente. |

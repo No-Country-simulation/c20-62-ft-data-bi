@@ -30,7 +30,6 @@ This project aims to develop a comprehensive framework addressing key aspects of
 | **/data**                | Folder that stores datasets and files used by the Analysis,  Dashboard and ML models.                              |
 | **/Notebooks**           | Folder containing Jupyter notebooks used for ETL, EDA and feature engineering processes |
 | **/Images**              | Folder containing relevant and illustrative images for the analysis project. |
-| **/Docs**              | Folder containing LaTex and PDF files (in English and Spanish) with the documentation carried out during each stage of the project, as well as a report with the final analysis and the project conclusions report.|
 | **requirements.txt**     | File listing dependencies and libraries required to run the project.                           |
 | **gitignore**            | File specifying folders and files to be ignored by version control (git).                      |
 | **LICENSE**              | MIT LICENSE - File specifying the terms under which the source code is shared.                 |
