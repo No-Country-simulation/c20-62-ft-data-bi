@@ -1,5 +1,21 @@
+![Python](https://img.shields.io/badge/Python-333333?style=flat&logo=python)
+![Apache Spark](https://img.shields.io/badge/-Apache%20Spark-333333?style=flat&logo=apache-spark)
+![PySpark](https://img.shields.io/badge/-PySpark-333333?style=flat&logo=apache-spark)
+![Jupyter](https://img.shields.io/badge/-Jupyter_Notebook-333333?style=flat&logo=jupyter)
+![Pandas](https://img.shields.io/badge/-Pandas-333333?style=flat&logo=pandas)
+![Numpy](https://img.shields.io/badge/-Numpy-333333?style=flat&logo=numpy)
+![Matplotlib](https://img.shields.io/badge/-Matplotlib-333333?style=flat&logo=matplotlib)
+![Scikitlearn](https://img.shields.io/badge/-Scikitlearn-333333?style=flat&logo=scikitlearn)
+![MySQL](https://img.shields.io/badge/-MySQL-333333?style=flat&logo=mysql)
+![Azure](https://img.shields.io/badge/-Microsoft%20Azure-333333?style=flat&logo=microsoft-azure)
+![Powerbi](https://img.shields.io/badge/-PowerBI-333333?style=flat&logo=powerbi)
+![VSC](https://img.shields.io/badge/Visual_Studio_Code-333333?style=flat&logo=visual%20studio%20code&logoColor=white)
+
 # c20-62-ft-data-bi
 
+<p align="center">
+  <img src="Images/Portada.gif">
+</p>
 
 Repositorio de BI de datos del grupo 62: Proyecto de análisis de datos con Microsoft Fabric (Azure Data Stack)
 
@@ -60,6 +76,10 @@ Este proyecto tiene como objetivo desarrollar un marco integral que aborde los a
 5. **Estructura Dimensional y Modelo Semántico:**
    - Se construyó una **estructura dimensional** almacenada en un **modelo semántico** para permitir un análisis profundo.
    - Se desarrolló un **dashboard en Power BI** que proporciona análisis visuales e insights sobre el mercado de videojuegos.
+
+   <p align="center">
+  <img src="Images/Dashboard.png">
+   </p>
 
 6. **Modelos de Recomendación:**
    - Se desarrollaron **modelos de recomendación** utilizando técnicas de **machine learning**, aprovechando específicamente la **similitud del coseno** para recomendaciones de usuarios e ítems.

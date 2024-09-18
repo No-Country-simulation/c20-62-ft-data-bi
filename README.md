@@ -14,7 +14,9 @@
 
 # c20-62-ft-data-bi
 
-
+<p align="center">
+  <img src="Images/Portada.gif">
+</p>
 
 Group 62 Data BI Repository: Data Analysis Project with Microsoft Fabric (Azure Data Stack)
 
@@ -76,6 +78,10 @@ This project aims to develop a comprehensive framework addressing key aspects of
 5. **Dimensional Structure and Semantic Model:**
    - Built a **dimensional structure** stored in a **semantic model** to enable insightful analysis.
    - Developed a **Power BI dashboard** that provides visual analytics and insights into the video game market.
+ <p align="center">
+  <img src="Images/Dashboard.png">
+   </p>
+
 
 6. **Recommendation Models:**
    - Developed **recommendation models** using **machine learning** techniques, specifically leveraging **cosine similarity** for user and item recommendations.
