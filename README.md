@@ -12,7 +12,7 @@
 ![VSC](https://img.shields.io/badge/Visual_Studio_Code-333333?style=flat&logo=visual%20studio%20code&logoColor=white)
 
 
-# c20-62-ft-data-bi
+# Data Synergi Solutions
 
 <p align="center">
   <img src="Images/Portada.gif">
