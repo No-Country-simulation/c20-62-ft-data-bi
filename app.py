@@ -17,7 +17,7 @@ from functions import (
 # Definición de la función para mostrar el dashboard
 def dashboard():
     enlace_embebido = '''
-    <iframe width="1366" height="768" src="https://app.powerbi.com/view?r=eyJrIjoiZmVjY2JiNGItYjM4OC00MTM4LWI2YjYtYjA5YzdiY2RhYjgwIiwidCI6Ijk2M2JjMjIzLTBjMDktNDk3MC05NTlmLTIyZjdjODFkZWYzNyIsImMiOjR9" frameborder="0" allowfullscreen></iframe>
+    <iframe title="Games_Analytics" width="600" height="373.5" src="https://app.fabric.microsoft.com/view?r=eyJrIjoiZjg4ZjA5YjEtY2Q4Ny00ZDY0LTlkM2QtYjFjM2I1YzU5M2ZkIiwidCI6IjM0NGY1NzYyLWEzMGItNGNiMC05MWYyLTFhYTJjMzEwOTk0ZCIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
     '''
     st.markdown(enlace_embebido, unsafe_allow_html=True)
 
@@ -32,8 +32,8 @@ option = st.sidebar.selectbox(
         'Top Genres by Playtime',
         'Top 5 Games by Playtime',
         'Bottom 3 Games by Playtime',
-        'Similar User Recommendations',
         'Game Recommendations by Name',
+        'Similar User Recommendations',
         'Ver Dashboard'
     ]
 )
@@ -57,6 +57,14 @@ elif option == 'Bottom 3 Games by Playtime':
         result = bottom_3_games_by_playtime(year)
         st.write(result)
 
+
+elif option == 'Game Recommendations by Name':
+    game_name = st.sidebar.text_input('Introduce el nombre del juego:')
+    if st.sidebar.button('Obtener recomendaciones'):
+        result = get_recommendations_by_name(game_name)
+        st.write(result)
+
+
 elif option == 'Similar User Recommendations':
     user = st.sidebar.text_input('Introduce el nombre del usuario:')
     if st.sidebar.button('Obtener recomendaciones'):
@@ -75,12 +83,6 @@ elif option == 'Similar User Recommendations':
                     st.write(game_recommendations)
         else:
             st.write(result)  # Mostrar mensaje de error si corresponde
-
-elif option == 'Game Recommendations by Name':
-    game_name = st.sidebar.text_input('Introduce el nombre del juego:')
-    if st.sidebar.button('Obtener recomendaciones'):
-        result = get_recommendations_by_name(game_name)
-        st.write(result)
 
 elif option == 'Ver Dashboard':
     dashboard()
