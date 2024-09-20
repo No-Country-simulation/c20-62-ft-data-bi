@@ -89,7 +89,7 @@ This project aims to develop a comprehensive framework addressing key aspects of
    - Conducted tests of the machine learning models using **Azure ML** tools.
    - Created a `functions.py` file that stores all the functions to be executed during the deployment phase.
 
-8. **Streamlit Deployment:**
+8. **Streamlit Deployment:** (You can deploy the live app [HERE](https://sinergydatasol.streamlit.app/))
    - Deployed the entire project via **Streamlit** through the `app.py` file, allowing users to:
      - View the interactive **dashboard**.
      - Interact with the **machine learning models**, including item and user recommendations, showcasing the project's full capabilities.

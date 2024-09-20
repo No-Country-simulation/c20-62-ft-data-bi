@@ -87,7 +87,7 @@ Este proyecto tiene como objetivo desarrollar un marco integral que aborde los a
    - Se realizaron pruebas de los modelos de machine learning utilizando las herramientas de **Azure ML**.
    - Se creó un archivo `functions.py` que almacena todas las funciones que se ejecutarán durante la fase de despliegue.
 
-8. **Despliegue en Streamlit:**
+8. **Despliegue en Streamlit:** (Puede ver el despliegue en vivo [AQUÍ](https://sinergydatasol.streamlit.app/))
    - Se desplegó todo el proyecto mediante **Streamlit** a través del archivo `app.py`, permitiendo a los usuarios:
      - Ver el **dashboard interactivo**.
      - Interactuar con los **modelos de machine learning**, incluyendo recomendaciones de ítems y usuarios, mostrando las capacidades completas del proyecto.
