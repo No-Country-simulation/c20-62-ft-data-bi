@@ -14,10 +14,11 @@ from functions import (
     get_recommendations_by_name
 )
 
+
 # Definición de la función para mostrar el dashboard
 def dashboard():
     enlace_embebido = '''
-    <iframe title="Games_Analytics" width="600" height="373.5" src="https://app.fabric.microsoft.com/view?r=eyJrIjoiZjg4ZjA5YjEtY2Q4Ny00ZDY0LTlkM2QtYjFjM2I1YzU5M2ZkIiwidCI6IjM0NGY1NzYyLWEzMGItNGNiMC05MWYyLTFhYTJjMzEwOTk0ZCIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
+    <iframe title="Games_Analytics" width="600" height="373.5" src="https://app.fabric.microsoft.com/view?r=eyJrIjoiZjg4ZjA5YjEtY2Q4Ny00ZDY0LTlkM2QtYjFjM2I1YzU5M2ZkIiwidCI6IjM0NGY1NzYyLWEzMGItNGNiMC05MWYyLTFhYTJjMzEwOTk0ZCIsImMiOjR9&pageName=3470fe379c94d0319def" frameborder="0" allowFullScreen="true"></iframe>
     '''
     st.markdown(enlace_embebido, unsafe_allow_html=True)
 
@@ -25,7 +26,7 @@ def dashboard():
 st.title('Games Market Analysis')
 
 # Selección de la función que el usuario desea usar
-st.sidebar.title('Funciones')
+st.sidebar.title('Sinergy Data Solutions')
 option = st.sidebar.selectbox(
     'Selecciona una función:',
     [
@@ -67,38 +68,37 @@ elif option == 'Game Recommendations by Name':
 
 elif option == 'Similar User Recommendations':
     user = st.sidebar.text_input('Introduce el nombre del usuario:')
-    
     if st.sidebar.button('Obtener recomendaciones'):
         result = similar_user_recs(user)
-        
-        if isinstance(result, pd.DataFrame) and not result.empty:
-            st.write('Recomendaciones basadas en usuarios similares:')
-            st.write(result)
+        st.write('Recomendaciones basadas en usuarios similares:')
+        st.write(result)
 
-            # Seleccionar un ítem de las recomendaciones
-            selected_item = st.selectbox(
-                'Selecciona un ítem para obtener recomendaciones adicionales:',
-                result['Item_name'].unique().tolist(),  # Usamos unique() para evitar duplicados
-                key='item_select'
-            )
+        # Guardar el resultado en session_state
+        st.session_state.similar_recs = result
 
-            # Verifica si hay un ítem seleccionado
-            if selected_item:
-                # Usamos session_state para almacenar el ítem seleccionado
-                st.session_state.selected_item = selected_item
+    # Mostrar el selectbox solo si hay recomendaciones
+    if 'similar_recs' in st.session_state:
+        selected_item = st.selectbox('Selecciona un ítem para obtener recomendaciones adicionales:', st.session_state.similar_recs['Item_name'].tolist(), key='item_select') 
+        if st.button('Obtener recomendaciones por nombre del juego'):
+            # Obtener recomendaciones basadas en el ítem seleccionado
+            game_recommendations = get_recommendations_by_name(selected_item)
+            st.write(game_recommendations)
 
-                # Verifica si ya hay un ítem seleccionado en la sesión y el botón es presionado
-                if st.button('Obtener recomendaciones por nombre del juego', key='recommend_button'):
-                    game_recommendations = get_recommendations_by_name(st.session_state.selected_item)
-                    
-                    # Verifica que la función de recomendaciones devuelva un DataFrame válido
-                    if isinstance(game_recommendations, pd.DataFrame) and not game_recommendations.empty:
-                        st.write(f'Recomendaciones para el juego: {st.session_state.selected_item}')
-                        st.write(game_recommendations)
-                    else:
-                        st.write(f'No se encontraron recomendaciones para {st.session_state.selected_item}.')
-        else:
-            st.write('No se encontraron recomendaciones para este usuario.')
+            # Guardar las nuevas recomendaciones en session_state
+            st.session_state.current_recommendations = game_recommendations
+
+    # Mostrar un selectbox para las recomendaciones actuales si existen
+    if 'current_recommendations' in st.session_state:
+        selected_game = st.selectbox('Selecciona un ítem de las recomendaciones:', st.session_state.current_recommendations['Item_name'].tolist(), key='game_select')
+        if st.button('Obtener más recomendaciones'):
+            # Obtener más recomendaciones basadas en el ítem seleccionado
+            more_recommendations = get_recommendations_by_name(selected_game)
+            st.write(more_recommendations)
+
+            # Actualizar las recomendaciones actuales
+            st.session_state.current_recommendations = more_recommendations
+
+
 
 
 elif option == 'Ver Dashboard':
@@ -106,4 +106,5 @@ elif option == 'Ver Dashboard':
 
 # Para ejecutar el despliegue en Streamlit
 # Utiliza el siguiente comando en la terminal:
-# 
+# streamlit run app.py
+
