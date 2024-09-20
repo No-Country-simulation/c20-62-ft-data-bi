@@ -67,26 +67,43 @@ elif option == 'Game Recommendations by Name':
 
 elif option == 'Similar User Recommendations':
     user = st.sidebar.text_input('Introduce el nombre del usuario:')
+    
     if st.sidebar.button('Obtener recomendaciones'):
         result = similar_user_recs(user)
+        
         if isinstance(result, pd.DataFrame) and not result.empty:
             st.write('Recomendaciones basadas en usuarios similares:')
             st.write(result)
 
             # Seleccionar un ítem de las recomendaciones
-            selected_item = st.selectbox('Selecciona un ítem para obtener recomendaciones adicionales:', result['Item_name'].tolist(), key='item_select')
-            
+            selected_item = st.selectbox(
+                'Selecciona un ítem para obtener recomendaciones adicionales:',
+                result['Item_name'].unique().tolist(),  # Usamos unique() para evitar duplicados
+                key='item_select'
+            )
+
+            # Verifica si hay un ítem seleccionado
             if selected_item:
-                if st.button('Obtener recomendaciones por nombre del juego'):
-                    game_recommendations = get_recommendations_by_name(selected_item)
-                    st.write(f'Recomendaciones para el juego: {selected_item}')
-                    st.write(game_recommendations)
+                # Usamos session_state para almacenar el ítem seleccionado
+                st.session_state.selected_item = selected_item
+
+                # Verifica si ya hay un ítem seleccionado en la sesión y el botón es presionado
+                if st.button('Obtener recomendaciones por nombre del juego', key='recommend_button'):
+                    game_recommendations = get_recommendations_by_name(st.session_state.selected_item)
+                    
+                    # Verifica que la función de recomendaciones devuelva un DataFrame válido
+                    if isinstance(game_recommendations, pd.DataFrame) and not game_recommendations.empty:
+                        st.write(f'Recomendaciones para el juego: {st.session_state.selected_item}')
+                        st.write(game_recommendations)
+                    else:
+                        st.write(f'No se encontraron recomendaciones para {st.session_state.selected_item}.')
         else:
-            st.write(result)  # Mostrar mensaje de error si corresponde
+            st.write('No se encontraron recomendaciones para este usuario.')
+
 
 elif option == 'Ver Dashboard':
     dashboard()
 
 # Para ejecutar el despliegue en Streamlit
 # Utiliza el siguiente comando en la terminal:
-# streamlit run app.py
+# 
